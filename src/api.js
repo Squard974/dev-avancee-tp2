@@ -38,6 +38,7 @@ export const getData = async (url) => {
             }));
 
             console.log(charactersWithImageUrl);
+            return charactersWithImageUrl;
 
         })
         .catch(error => {

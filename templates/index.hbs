@@ -1,11 +1,16 @@
+{{> header}}
 
-<div class="container-fluid m-2 p-5 bg-primary text-center">
-    <h1>Les Marvels</h1>
-</div>
-<div class="container m-2 p-5 bg-primary  text-center">
-    <h2>Mes comics</h2>
+<!-- Contenu spécifique de la page -->
+<ul>
+    {{#each characters}}
+        <li>
+            <h2>{{name}}</h2>
+            <p>ID: {{id}}</p>
+            <img src="{{imageUrl}}" alt="{{name}} Image">
+        </li>
+    {{/each}}
+</ul>
 
-</div>
-
+{{> footer}}
 
 
