@@ -1,5 +1,5 @@
 import {createHash} from 'node:crypto'
-
+import dotenv from 'dotenv';
 /**
  * Récupère les données de l'endpoint en utilisant les identifiants
  * particuliers developer.marvels.com
@@ -7,9 +7,14 @@ import {createHash} from 'node:crypto'
  * @return {Promise<json>}
  */
 export const getData = async (url) => {
+
+    dotenv.config();
+
     let ts = new Date().getTime()
-    let publicKey = "361124b7737967445b1ee399a9fd3846"
-    let privateKey = "875674f8520063d42315708994ac56cfe874eda7"
+    //let publicKey = "361124b7737967445b1ee399a9fd3846"
+    //let privateKey = "875674f8520063d42315708994ac56cfe874eda7"
+    let publicKey =process.env.PUBKEY;
+    let privateKey =process.env.PRIKEY;
     let hash = await getHash(ts, privateKey, publicKey)
 
     let completeUrl = url + "?ts=" + ts + "&apikey=" + publicKey + "&hash=" + hash
